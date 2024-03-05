@@ -67,19 +67,22 @@ const HomePage = () => {
     }
   return (
     <div>
-      <h1>E-Commerce</h1>
-      {/*Boton para modo oscuro*/}
-      <button onClick={handleDark}>Dark Mode</button>
+      <div className='filtersContainer'>
+        {/*Boton para modo oscuro*/}
+        <button onClick={handleDark}>Dark Mode</button>
 
       <FormPrice
         setFormValue={setFormValue}
       />
-      {/*Con Onchange hago que cada vez que cambie la variable textInput se ejecute*/}
-      <input type="text" ref={textInput} onChange={handleSearch}/>
-
+      <div>
+        <h3>By Name</h3>
+        {/*Con Onchange hago que cada vez que cambie la variable textInput se ejecute*/}
+        <input type="text" ref={textInput} onChange={handleSearch}/>
+      </div>
       <SelectCategory
       setSelectValue={setSelectValue}
       />
+     </div> 
 
       <section className='productsContainer'>
         {

@@ -6,7 +6,10 @@ import ProductIdPage from './pages/ProductIdPage.jsx'
 import RegisterPage from './pages/RegisterPage.jsx'
 import LoginPage from './pages/LoginPage.jsx'
 import CartPage from './pages/CartPage.jsx'
-import Purchase from './pages/PurchasePage.jsx'
+import HeaderNav from './components/shared/HeaderNav.jsx'
+import ProtectedRoutes from './pages/ProtectedRoutes.jsx'
+import PurchasePage from './pages/PurchasePage.jsx'
+
 
 
 
@@ -14,16 +17,21 @@ function App() {
   
 
   return (
-    
+    <div>
+      <HeaderNav/>
       <Routes>
         <Route path='/' element={<HomePage/>}/>
         <Route path='/product/:id' element={<ProductIdPage/>}/>
         <Route path='/register' element={<RegisterPage/>}/>
         <Route path='/login' element={<LoginPage/>}/>
-        <Route path='/cart' element={<CartPage/>}/>
-        <Route path='/purchase' element={<Purchase/>}/>
+
+        <Route element={<ProtectedRoutes/>}>
+          <Route path='/cart' element={<CartPage/>}/>
+          <Route path='/purchases' element={<PurchasePage/>}/>
+        </Route>
+        
       </Routes>
-    
+      </div>
   )
 }
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import useAuth from '../hooks/useAuth';
+import { Link } from 'react-router-dom';
 
 const LoginPage = () => {
 
@@ -11,6 +12,7 @@ const LoginPage = () => {
   const submit = data =>{
     //console.log(data)
     const url='https://e-commerce-api-v2.academlo.tech/api/v1/users/login';
+               
     createToken(url, data)
     reset({
       email:'',
@@ -22,7 +24,7 @@ const LoginPage = () => {
       <form onSubmit={handleSubmit(submit)}>
         <div>
           <label htmlFor="user">Email</label>
-          <input {...register('email')} id='user' type="text" />
+          <input {...register('email')} id='user' type="email" />
         </div>
 
         <div>
@@ -31,6 +33,7 @@ const LoginPage = () => {
         </div>
         <button>Submit</button>
       </form>
+      <p>Registrate <Link to='/register'>aquí</Link> </p>
     </div>
   )
 }

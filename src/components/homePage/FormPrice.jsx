@@ -19,11 +19,11 @@ const FormPrice = ({setFormValue}) => {
     <div>
         <form onSubmit={handleSubmit(submit)}>
             <div>
-                <label htmlFor="from"></label>
+                <label htmlFor="from">From: </label>
                 <input {...register('from')} id='from' type="number" />
             </div>
             <div>
-                <label id='to' htmlFor="to"></label>
+                <label id='to' htmlFor="to">To: </label>
                 <input {...register('to')} id='to' type="number" />
             </div>
             <button>Filter Price</button>

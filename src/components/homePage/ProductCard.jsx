@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 
 const ProductCard = ({prod}) => {
     //COmpruebo que estoy recibuendo prod
-    //console.log(prod)
+    console.log(prod)
 
     //Para conectar a la HomePage.jsx
     const navigate= useNavigate();
@@ -16,16 +16,16 @@ const ProductCard = ({prod}) => {
     }
   return (
     <article className='productCard'>
-        <figure className='productCard_img'>
+        <figure onClick={handleView} className='productCard_img'>
            <img src={prod.images[0].url} alt="product image" />
            <img src={prod.images[1].url} alt="product image" />
         </figure>
-        <div>
-            <ul>
-                <li><span>{prod.brand}</span><span>{prod.brand}</span></li>
+            <hr />
+            <ul className='prouctCard_info'>
+                <li><span>{prod.brand}</span><span>{prod.title}</span></li>
                 <li><span>Price: </span><span>${prod.price}</span></li>
             </ul>
-        </div>
+        
 
         <div className='productButtons'>
             <button>Add to car</button>
